@@ -2,13 +2,16 @@ import gspread
 from google.oauth2.service_account import Credentials
 from datetime import datetime
 import random
+import os
+import json
 
 try:
     # Define the scope of the application
     scope = ["https://www.googleapis.com/auth/spreadsheets"]
 
     # Load the credentials from the JSON file
-    creds = Credentials.from_service_account_file('credentials.json', scopes=scope)
+    google_creds = json.loads(os.getenv('GOOGLE_SHEETS_CREDENTIALS'))
+    creds = Credentials.from_service_account_file(google_creds, scopes=scope)
 
     # Authorize and create a client
     client = gspread.authorize(creds)
@@ -16,10 +19,6 @@ try:
     # Access the Google Sheet
     sheet_id = "1SAIhGo8gvjn7bpClqqUlJ0VEjtgl27qgFIuMGprqn5g"
     sheet = client.open_by_key(sheet_id).sheet1
-
-    # Data generation function
-    import random
-    from datetime import datetime
 
     def generate_flood_data():
         # Date: Generate any day and month for this year and 2023
