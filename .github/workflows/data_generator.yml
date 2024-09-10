@@ -2,8 +2,8 @@ name: Data Generator Workflow
 
 on:
   schedule:
-    - cron: '0 0 * * *'  # Runs at midnight UTC every day
-
+    - cron: '*/15 * * * *'  # Runs at midnight UTC every day
+  workflow_dispatch:
 jobs:
   run-data-generator:
     runs-on: ubuntu-latest
