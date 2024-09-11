@@ -4,6 +4,7 @@ on:
   schedule:
     - cron: '*/15 * * * *'  # Runs at midnight UTC every day
   workflow_dispatch:
+
 jobs:
   run-data-generator:
     runs-on: ubuntu-latest
@@ -24,6 +25,11 @@ jobs:
 
     - name: Run data generator
       run: |
-        python data_generator.py
+        data_generator.py
       env:
-        GOOGLE_SHEET_CREDENTIALS: ${{ secrets.GOOGLE_SHEET_CREDENTIALS }}
+        CREDENTIALS_PATH: credentials.json  # Update this path to the location of your credentials file
+
+
+
+
+  
