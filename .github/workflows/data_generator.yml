@@ -25,9 +25,6 @@ jobs:
 
     - name: Run data generator
       run: data_generator.py
-      env:
-        CREDENTIALS_PATH: credentials.json  # Update this path to the location of your credentials file
-
 
 
 
