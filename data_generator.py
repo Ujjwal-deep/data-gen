@@ -2,16 +2,13 @@ import gspread
 from google.oauth2.service_account import Credentials
 from datetime import datetime
 import random
-import os
-import json
 
 try:
     # Define the scope of the application
     scope = ["https://www.googleapis.com/auth/spreadsheets"]
 
     # Load the credentials from the JSON file
-    google_creds = json.loads(os.getenv('GOOGLE_SHEETS_CREDENTIALS'))
-    creds = Credentials.from_service_account_file(google_creds, scopes=scope)
+    creds = Credentials.from_service_account_file('credentials.json', scopes=scope)
 
     # Authorize and create a client
     client = gspread.authorize(creds)
