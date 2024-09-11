@@ -28,8 +28,7 @@ jobs:
         echo "${{ secrets.GOOGLE_CREDENTIALS }}" > Creds.json
 
     - name: Run data generator
-      run: |
-        data_generator.py
+      run: python data_generator.py
 
 
 
